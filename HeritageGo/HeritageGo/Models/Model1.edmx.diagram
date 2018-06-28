@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23115a1a1fdf450bbb54c4f3e2f40cda" Name="Diagram1">
+        <EntityTypeShape EntityType="dbHeritagerModel.tbCommentary" Width="1.5" PointX="3" PointY="21.125" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbGroup" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbHerinTag" Width="1.5" PointX="6" PointY="11.375" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbHeritagerInfor" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbHeritagerInfor_lang" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbImage" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbImages_lang" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbLanguage" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbLiked" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbTag" Width="1.5" PointX="3.75" PointY="25.25" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbTag_lang" Width="1.5" PointX="6" PointY="14.25" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbUserInfor" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="dbHeritagerModel.tbViewed" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbCommentary_tbHeritagerInfor" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbHerinTag_tbHeritagerInfor" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbHerinTag_tbTag" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbImages_tbHeritagerInfor" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbLanguagelocationinfor_location_id" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbLiked_tbHeritagerInfor" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbViewed_tbHeritagerInfor" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbHeritagerInfor_lang_tbLanguage" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbImages_lang_tbImages" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbImages_lang_tbLanguage" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbTag_lang_tbLanguage" />
+        <AssociationConnector Association="dbHeritagerModel.FK_tbTag_lang_tbTag" />
+        <AssociationConnector Association="dbHeritagerModel.tbUserInGroup" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

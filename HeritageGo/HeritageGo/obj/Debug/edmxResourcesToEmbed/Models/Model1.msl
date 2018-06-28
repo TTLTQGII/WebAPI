@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbHeritagerModelStoreContainer" CdmEntityContainer="dbHeritagerEntities">
+    <FunctionImportMapping FunctionImportName="GetCommentaryByID" FunctionName="dbHeritagerModel.Store.GetCommentaryByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbHeritagerModel.GetCommentaryByID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbCommentaries">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbCommentary">
+        <MappingFragment StoreEntitySet="tbCommentary">
+          <ScalarProperty Name="Audited" ColumnName="Audited" />
+          <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Commented" ColumnName="Commented" />
+          <ScalarProperty Name="InforPlatform" ColumnName="InforPlatform" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserLocation" ColumnName="UserLocation" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbGroups">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbGroup">
+        <MappingFragment StoreEntitySet="tbGroups">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbHerinTags">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbHerinTag">
+        <MappingFragment StoreEntitySet="tbHerinTag">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbHeritagerInfors">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbHeritagerInfor">
+        <MappingFragment StoreEntitySet="tbHeritagerInfor">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TimeofBuild" ColumnName="TimeofBuild" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbHeritagerInfor_lang">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbHeritagerInfor_lang">
+        <MappingFragment StoreEntitySet="tbHeritagerInfor_lang">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TimeofBuild" ColumnName="TimeofBuild" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Langcode" ColumnName="Langcode" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbImages">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbImage">
+        <MappingFragment StoreEntitySet="tbImages">
+          <ScalarProperty Name="IsAvatar" ColumnName="IsAvatar" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbImages_lang">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbImages_lang">
+        <MappingFragment StoreEntitySet="tbImages_lang">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Langcode" ColumnName="Langcode" />
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbLanguages">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbLanguage">
+        <MappingFragment StoreEntitySet="tbLanguage">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="LangName" ColumnName="LangName" />
+          <ScalarProperty Name="Langcode" ColumnName="Langcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbLikeds">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbLiked">
+        <MappingFragment StoreEntitySet="tbLiked">
+          <ScalarProperty Name="LikedTime" ColumnName="LikedTime" />
+          <ScalarProperty Name="Liked" ColumnName="Liked" />
+          <ScalarProperty Name="InforPlatform" ColumnName="InforPlatform" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserLocation" ColumnName="UserLocation" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTags">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbTag">
+        <MappingFragment StoreEntitySet="tbTag">
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagIDParent" ColumnName="TagIDParent" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTag_lang">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbTag_lang">
+        <MappingFragment StoreEntitySet="tbTag_lang">
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="Langcode" ColumnName="Langcode" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUserInfors">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbUserInfor">
+        <MappingFragment StoreEntitySet="tbUserInfor">
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbVieweds">
+      <EntityTypeMapping TypeName="dbHeritagerModel.tbViewed">
+        <MappingFragment StoreEntitySet="tbViewed">
+          <ScalarProperty Name="TimeViewed" ColumnName="TimeViewed" />
+          <ScalarProperty Name="HerID" ColumnName="HerID" />
+          <ScalarProperty Name="InforPlatform" ColumnName="InforPlatform" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserLocation" ColumnName="UserLocation" />
+          <ScalarProperty Name="Viewed" ColumnName="Viewed" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tbUserInGroup" TypeName="dbHeritagerModel.tbUserInGroup" StoreEntitySet="tbUserInGroup">
+      <EndProperty Name="tbUserInfor">
+        <ScalarProperty Name="UserId" ColumnName="UserID" />
+      </EndProperty>
+      <EndProperty Name="tbGroup">
+        <ScalarProperty Name="ID" ColumnName="GoupID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

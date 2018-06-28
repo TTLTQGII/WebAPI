@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbHeritagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbHeritagerEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetCommentaryByID" ReturnType="Collection(dbHeritagerModel.GetCommentaryByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="nums" Mode="In" Type="Int32" />
+      <Parameter Name="nume" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbCommentaries" EntityType="dbHeritagerModel.tbCommentary" />
+    <EntitySet Name="tbGroups" EntityType="dbHeritagerModel.tbGroup" />
+    <EntitySet Name="tbHerinTags" EntityType="dbHeritagerModel.tbHerinTag" />
+    <EntitySet Name="tbHeritagerInfors" EntityType="dbHeritagerModel.tbHeritagerInfor" />
+    <EntitySet Name="tbHeritagerInfor_lang" EntityType="dbHeritagerModel.tbHeritagerInfor_lang" />
+    <EntitySet Name="tbImages" EntityType="dbHeritagerModel.tbImage" />
+    <EntitySet Name="tbImages_lang" EntityType="dbHeritagerModel.tbImages_lang" />
+    <EntitySet Name="tbLanguages" EntityType="dbHeritagerModel.tbLanguage" />
+    <EntitySet Name="tbLikeds" EntityType="dbHeritagerModel.tbLiked" />
+    <EntitySet Name="tbTags" EntityType="dbHeritagerModel.tbTag" />
+    <EntitySet Name="tbTag_lang" EntityType="dbHeritagerModel.tbTag_lang" />
+    <EntitySet Name="tbUserInfors" EntityType="dbHeritagerModel.tbUserInfor" />
+    <EntitySet Name="tbVieweds" EntityType="dbHeritagerModel.tbViewed" />
+    <AssociationSet Name="FK_tbCommentary_tbHeritagerInfor" Association="dbHeritagerModel.FK_tbCommentary_tbHeritagerInfor">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbCommentary" EntitySet="tbCommentaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbHerinTag_tbHeritagerInfor" Association="dbHeritagerModel.FK_tbHerinTag_tbHeritagerInfor">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbHerinTag" EntitySet="tbHerinTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbHerinTag_tbTag" Association="dbHeritagerModel.FK_tbHerinTag_tbTag">
+      <End Role="tbTag" EntitySet="tbTags" />
+      <End Role="tbHerinTag" EntitySet="tbHerinTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbImages_tbHeritagerInfor" Association="dbHeritagerModel.FK_tbImages_tbHeritagerInfor">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbImage" EntitySet="tbImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbLanguagelocationinfor_location_id" Association="dbHeritagerModel.FK_tbLanguagelocationinfor_location_id">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbHeritagerInfor_lang" EntitySet="tbHeritagerInfor_lang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbLiked_tbHeritagerInfor" Association="dbHeritagerModel.FK_tbLiked_tbHeritagerInfor">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbLiked" EntitySet="tbLikeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbViewed_tbHeritagerInfor" Association="dbHeritagerModel.FK_tbViewed_tbHeritagerInfor">
+      <End Role="tbHeritagerInfor" EntitySet="tbHeritagerInfors" />
+      <End Role="tbViewed" EntitySet="tbVieweds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbHeritagerInfor_lang_tbLanguage" Association="dbHeritagerModel.FK_tbHeritagerInfor_lang_tbLanguage">
+      <End Role="tbLanguage" EntitySet="tbLanguages" />
+      <End Role="tbHeritagerInfor_lang" EntitySet="tbHeritagerInfor_lang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbImages_lang_tbImages" Association="dbHeritagerModel.FK_tbImages_lang_tbImages">
+      <End Role="tbImage" EntitySet="tbImages" />
+      <End Role="tbImages_lang" EntitySet="tbImages_lang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbImages_lang_tbLanguage" Association="dbHeritagerModel.FK_tbImages_lang_tbLanguage">
+      <End Role="tbLanguage" EntitySet="tbLanguages" />
+      <End Role="tbImages_lang" EntitySet="tbImages_lang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbTag_lang_tbLanguage" Association="dbHeritagerModel.FK_tbTag_lang_tbLanguage">
+      <End Role="tbLanguage" EntitySet="tbLanguages" />
+      <End Role="tbTag_lang" EntitySet="tbTag_lang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbTag_lang_tbTag" Association="dbHeritagerModel.FK_tbTag_lang_tbTag">
+      <End Role="tbTag" EntitySet="tbTags" />
+      <End Role="tbTag_lang" EntitySet="tbTag_lang" />
+    </AssociationSet>
+    <AssociationSet Name="tbUserInGroup" Association="dbHeritagerModel.tbUserInGroup">
+      <End Role="tbGroup" EntitySet="tbGroups" />
+      <End Role="tbUserInfor" EntitySet="tbUserInfors" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetCommentaryByID_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Contents" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="PostTime" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <EntityType Name="tbCommentary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerID" Type="Int32" Nullable="false" />
+    <Property Name="UserLocation" Type="Geography" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InforPlatform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Commented" Type="Int32" />
+    <Property Name="Contents" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Audited" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbCommentary_tbHeritagerInfor" FromRole="tbCommentary" ToRole="tbHeritagerInfor" />
+  </EntityType>
+  <EntityType Name="tbGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbUserInfors" Relationship="dbHeritagerModel.tbUserInGroup" FromRole="tbGroup" ToRole="tbUserInfor" />
+  </EntityType>
+  <EntityType Name="tbHerinTag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerID" Type="Int32" Nullable="false" />
+    <Property Name="TagID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbHerinTag_tbHeritagerInfor" FromRole="tbHerinTag" ToRole="tbHeritagerInfor" />
+    <NavigationProperty Name="tbTag" Relationship="dbHeritagerModel.FK_tbHerinTag_tbTag" FromRole="tbHerinTag" ToRole="tbTag" />
+  </EntityType>
+  <EntityType Name="tbHeritagerInfor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TimeofBuild" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="Geography" />
+    <NavigationProperty Name="tbCommentaries" Relationship="dbHeritagerModel.FK_tbCommentary_tbHeritagerInfor" FromRole="tbHeritagerInfor" ToRole="tbCommentary" />
+    <NavigationProperty Name="tbHerinTags" Relationship="dbHeritagerModel.FK_tbHerinTag_tbHeritagerInfor" FromRole="tbHeritagerInfor" ToRole="tbHerinTag" />
+    <NavigationProperty Name="tbImages" Relationship="dbHeritagerModel.FK_tbImages_tbHeritagerInfor" FromRole="tbHeritagerInfor" ToRole="tbImage" />
+    <NavigationProperty Name="tbHeritagerInfor_lang" Relationship="dbHeritagerModel.FK_tbLanguagelocationinfor_location_id" FromRole="tbHeritagerInfor" ToRole="tbHeritagerInfor_lang" />
+    <NavigationProperty Name="tbLikeds" Relationship="dbHeritagerModel.FK_tbLiked_tbHeritagerInfor" FromRole="tbHeritagerInfor" ToRole="tbLiked" />
+    <NavigationProperty Name="tbVieweds" Relationship="dbHeritagerModel.FK_tbViewed_tbHeritagerInfor" FromRole="tbHeritagerInfor" ToRole="tbViewed" />
+  </EntityType>
+  <EntityType Name="tbHeritagerInfor_lang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerID" Type="Int32" Nullable="false" />
+    <Property Name="Langcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TimeofBuild" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbLanguagelocationinfor_location_id" FromRole="tbHeritagerInfor_lang" ToRole="tbHeritagerInfor" />
+    <NavigationProperty Name="tbLanguage" Relationship="dbHeritagerModel.FK_tbHeritagerInfor_lang_tbLanguage" FromRole="tbHeritagerInfor_lang" ToRole="tbLanguage" />
+  </EntityType>
+  <EntityType Name="tbImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerID" Type="Int32" />
+    <Property Name="ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsAvatar" Type="Boolean" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbImages_tbHeritagerInfor" FromRole="tbImage" ToRole="tbHeritagerInfor" />
+    <NavigationProperty Name="tbImages_lang" Relationship="dbHeritagerModel.FK_tbImages_lang_tbImages" FromRole="tbImage" ToRole="tbImages_lang" />
+  </EntityType>
+  <EntityType Name="tbImages_lang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageID" Type="Int32" Nullable="false" />
+    <Property Name="Langcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbImage" Relationship="dbHeritagerModel.FK_tbImages_lang_tbImages" FromRole="tbImages_lang" ToRole="tbImage" />
+    <NavigationProperty Name="tbLanguage" Relationship="dbHeritagerModel.FK_tbImages_lang_tbLanguage" FromRole="tbImages_lang" ToRole="tbLanguage" />
+  </EntityType>
+  <EntityType Name="tbLanguage">
+    <Key>
+      <PropertyRef Name="Langcode" />
+    </Key>
+    <Property Name="Langcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LangName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbHeritagerInfor_lang" Relationship="dbHeritagerModel.FK_tbHeritagerInfor_lang_tbLanguage" FromRole="tbLanguage" ToRole="tbHeritagerInfor_lang" />
+    <NavigationProperty Name="tbImages_lang" Relationship="dbHeritagerModel.FK_tbImages_lang_tbLanguage" FromRole="tbLanguage" ToRole="tbImages_lang" />
+    <NavigationProperty Name="tbTag_lang" Relationship="dbHeritagerModel.FK_tbTag_lang_tbLanguage" FromRole="tbLanguage" ToRole="tbTag_lang" />
+  </EntityType>
+  <EntityType Name="tbLiked">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerID" Type="Int32" Nullable="false" />
+    <Property Name="UserLocation" Type="Geography" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InforPlatform" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Liked" Type="Int32" />
+    <Property Name="LikedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbLiked_tbHeritagerInfor" FromRole="tbLiked" ToRole="tbHeritagerInfor" />
+  </EntityType>
+  <EntityType Name="tbTag">
+    <Key>
+      <PropertyRef Name="TagID" />
+    </Key>
+    <Property Name="TagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TagIDParent" Type="Int32" />
+    <Property Name="TagName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TagDescription" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbHerinTags" Relationship="dbHeritagerModel.FK_tbHerinTag_tbTag" FromRole="tbTag" ToRole="tbHerinTag" />
+    <NavigationProperty Name="tbTag_lang" Relationship="dbHeritagerModel.FK_tbTag_lang_tbTag" FromRole="tbTag" ToRole="tbTag_lang" />
+  </EntityType>
+  <EntityType Name="tbTag_lang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TagID" Type="Int32" Nullable="false" />
+    <Property Name="Langcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TagName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TagDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbLanguage" Relationship="dbHeritagerModel.FK_tbTag_lang_tbLanguage" FromRole="tbTag_lang" ToRole="tbLanguage" />
+    <NavigationProperty Name="tbTag" Relationship="dbHeritagerModel.FK_tbTag_lang_tbTag" FromRole="tbTag_lang" ToRole="tbTag" />
+  </EntityType>
+  <EntityType Name="tbUserInfor">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AccountType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbGroups" Relationship="dbHeritagerModel.tbUserInGroup" FromRole="tbUserInfor" ToRole="tbGroup" />
+  </EntityType>
+  <EntityType Name="tbViewed">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="Viewed" Type="Int32" Nullable="false" />
+    <Property Name="UserLocation" Type="Geography" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InforPlatform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HerID" Type="Int32" Nullable="false" />
+    <Property Name="TimeViewed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tbHeritagerInfor" Relationship="dbHeritagerModel.FK_tbViewed_tbHeritagerInfor" FromRole="tbViewed" ToRole="tbHeritagerInfor" />
+  </EntityType>
+  <Association Name="FK_tbCommentary_tbHeritagerInfor">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbCommentary" Role="tbCommentary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbCommentary">
+        <PropertyRef Name="HerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbHerinTag_tbHeritagerInfor">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbHerinTag" Role="tbHerinTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbHerinTag">
+        <PropertyRef Name="HerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbHerinTag_tbTag">
+    <End Type="dbHeritagerModel.tbTag" Role="tbTag" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbHerinTag" Role="tbHerinTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTag">
+        <PropertyRef Name="TagID" />
+      </Principal>
+      <Dependent Role="tbHerinTag">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbImages_tbHeritagerInfor">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbImage" Role="tbImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbImage">
+        <PropertyRef Name="HerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbLanguagelocationinfor_location_id">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="1" />
+    <End Type="dbHeritagerModel.tbHeritagerInfor_lang" Role="tbHeritagerInfor_lang" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbHeritagerInfor_lang">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbLiked_tbHeritagerInfor">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbLiked" Role="tbLiked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbLiked">
+        <PropertyRef Name="HerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbViewed_tbHeritagerInfor">
+    <End Type="dbHeritagerModel.tbHeritagerInfor" Role="tbHeritagerInfor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbViewed" Role="tbViewed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHeritagerInfor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbViewed">
+        <PropertyRef Name="HerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbHeritagerInfor_lang_tbLanguage">
+    <End Type="dbHeritagerModel.tbLanguage" Role="tbLanguage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbHeritagerInfor_lang" Role="tbHeritagerInfor_lang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbLanguage">
+        <PropertyRef Name="Langcode" />
+      </Principal>
+      <Dependent Role="tbHeritagerInfor_lang">
+        <PropertyRef Name="Langcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbImages_lang_tbImages">
+    <End Type="dbHeritagerModel.tbImage" Role="tbImage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbImages_lang" Role="tbImages_lang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbImage">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbImages_lang">
+        <PropertyRef Name="ImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbImages_lang_tbLanguage">
+    <End Type="dbHeritagerModel.tbLanguage" Role="tbLanguage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbImages_lang" Role="tbImages_lang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbLanguage">
+        <PropertyRef Name="Langcode" />
+      </Principal>
+      <Dependent Role="tbImages_lang">
+        <PropertyRef Name="Langcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbTag_lang_tbLanguage">
+    <End Type="dbHeritagerModel.tbLanguage" Role="tbLanguage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbTag_lang" Role="tbTag_lang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbLanguage">
+        <PropertyRef Name="Langcode" />
+      </Principal>
+      <Dependent Role="tbTag_lang">
+        <PropertyRef Name="Langcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbTag_lang_tbTag">
+    <End Type="dbHeritagerModel.tbTag" Role="tbTag" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbHeritagerModel.tbTag_lang" Role="tbTag_lang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTag">
+        <PropertyRef Name="TagID" />
+      </Principal>
+      <Dependent Role="tbTag_lang">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbUserInGroup">
+    <End Type="dbHeritagerModel.tbGroup" Role="tbGroup" Multiplicity="*" />
+    <End Type="dbHeritagerModel.tbUserInfor" Role="tbUserInfor" Multiplicity="*" />
+  </Association>
+</Schema>
